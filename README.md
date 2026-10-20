@@ -1,60 +1,78 @@
-# CodeAlpha Object Detection and Tracking
+# 🚀 Real-Time Object Detection and Tracking System
 
-A real-time object detection and tracking application developed using **Python, OpenCV, and Ultralytics YOLO11**. The system uses a webcam to detect objects, display bounding boxes, track objects across video frames, and show live performance statistics.
+A real-time computer vision application built using **Python, Flask, YOLO11, and OpenCV**. The system detects objects from a live webcam feed, displays bounding boxes and class labels, and tracks detected objects with tracking IDs.
 
-## Features
+## 📌 Project Overview
 
-- Real-time object detection using a webcam
-- Pretrained YOLO11n model
-- Bounding boxes and object labels
-- Object tracking with tracking IDs when available
-- Live FPS (Frames Per Second) counter
-- Current-frame object detection count
-- Automatic model weight download when required
-- Simple and easy-to-use interface
+This project was developed as part of the **CodeAlpha Artificial Intelligence Internship – Task 4: Object Detection and Tracking**.
 
-## Technologies Used
+The application combines a deep learning object detection model with a web-based dashboard to provide a user-friendly interface for real-time object detection and tracking.
 
-- **Programming Language:** Python
-- **Object Detection:** Ultralytics YOLO11n
-- **Computer Vision:** OpenCV
-- **Tracking:** YOLO tracking API with persistent tracking across frames
-- **Version Control:** Git and GitHub
+## ✨ Features
 
-## Project Structure
+- 🎯 **Real-Time Object Detection** — Detect objects from a live webcam feed using YOLO11.
+- 📦 **Bounding Boxes** — Display detected objects with bounding boxes and class labels.
+- 🔍 **Object Tracking** — Track detected objects using tracking IDs.
+- 📊 **Detection Statistics** — Display object counts and detection information supported by the application.
+- 🎥 **Live Camera Feed** — Start and stop camera processing through the dashboard.
+- 💯 **Confidence Scores** — Display model confidence scores for detected objects.
+- 🌙 **Dark/Light Mode** — Switch between dashboard themes.
+- 🖥️ **Web-Based Dashboard** — Access the application through a local web browser.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Flask | Web application backend |
+| YOLO11 | Object detection model |
+| OpenCV | Webcam access and image processing |
+| HTML5 | Web page structure |
+| CSS3 | Dashboard styling and responsive layout |
+| JavaScript | Dashboard interactions and live updates |
+
+## 📂 Project Structure
 
 ```text
 CodeAlpha_ObjectDetection/
+│
+├── app.py
 ├── main.py
 ├── requirements.txt
 ├── README.md
-└── .gitignore
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   ├── style.css
+│   └── script.js
+│
+└── .venv/
 ```
 
-## Installation and Setup
+**Note:** The `.venv` directory is your local virtual environment and should not be uploaded to GitHub.
 
-### Prerequisites
-
-- Python installed on your system
-- Webcam or compatible camera
-- Internet connection for downloading model weights if needed
+## ⚙️ Installation and Setup
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/CodeAlpha_ObjectDetection.git
+git clone YOUR_GITHUB_REPOSITORY_URL
 cd CodeAlpha_ObjectDetection
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username.
+Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual GitHub repository URL.
 
 ### 2. Create a Virtual Environment
 
-```powershell
+```bash
 python -m venv .venv
 ```
 
 ### 3. Activate the Virtual Environment
+
+**Windows PowerShell:**
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
@@ -62,56 +80,70 @@ python -m venv .venv
 
 ### 4. Install Dependencies
 
-```powershell
-pip install -r requirements.txt
+```bash
+python -m pip install -r requirements.txt
 ```
 
 ### 5. Run the Application
 
-```powershell
-python main.py
+```bash
+python app.py
 ```
 
-On the first run, the pretrained `yolo11n.pt` model may be downloaded automatically if it is not already available.
+### 6. Open the Dashboard
 
-Allow webcam access if requested. Press **`q`** to stop the application and close the detection window.
+Open your browser and visit:
 
-## How It Works
+```text
+http://127.0.0.1:5000
+```
 
-1. OpenCV captures live video frames from the webcam.
-2. YOLO11n processes each frame and detects supported object classes.
-3. The tracking API associates detections across consecutive frames.
-4. Bounding boxes and object labels are drawn on the video.
-5. Tracking IDs are displayed when available.
-6. The application calculates and displays FPS and the number of detections in the current frame.
+The YOLO11 model weights may be downloaded automatically by Ultralytics when the application first loads the model, if they are not already available locally.
 
-## Understanding the Results
+## 🚦 How to Use
 
-- **Object Label:** The predicted class of a detected object.
-- **Bounding Box:** A rectangle indicating the detected object's location.
-- **Tracking ID:** An identifier assigned to a tracked detection when available.
-- **FPS:** The approximate number of processed frames per second.
-- **Objects Detected:** The number of detections in the current frame, not the total number of unique objects tracked.
+1. Start the Flask application.
+2. Open the dashboard in your browser.
+3. Click **Start Camera** to begin live detection.
+4. Allow camera access if prompted.
+5. Show objects to the webcam.
+6. Observe the detected objects, bounding boxes, class labels, confidence scores, and tracking IDs.
+7. Click **Stop Camera** to stop processing.
+8. Use the theme toggle to switch between dark and light modes.
 
-## Limitations
+## 🧠 How It Works
 
-- The pretrained model recognizes only the object classes it was trained to detect.
-- The standard COCO model does not include `pen` as a separate class, so a pen may be misclassified.
-- Detection accuracy depends on lighting, image quality, object size, and camera conditions.
-- Custom objects may require a labeled dataset and a separately trained model.
-- Processing speed depends on the available hardware.
+1. **Video Capture:** OpenCV captures frames from the webcam.
+2. **Object Detection:** The YOLO11 model processes the frames and identifies supported object classes.
+3. **Object Tracking:** The tracking pipeline associates detections across consecutive frames.
+4. **Visualization:** Detection results are drawn on the frames.
+5. **Web Streaming:** Flask streams the processed frames to the browser.
+6. **Dashboard Updates:** JavaScript updates the detection information displayed in the interface.
 
-## Future Enhancements
+## 🎯 Applications
 
-- Add a graphical dashboard with start and stop controls.
-- Support video file input in addition to a webcam.
-- Save detection results and recorded videos.
-- Display object-specific statistics.
-- Train a custom model for additional object classes.
+- Real-time surveillance and monitoring
+- Smart traffic monitoring
+- Retail analytics
+- Computer vision demonstrations
+- Object tracking research and learning
 
-## Internship Project
+## ⚠️ Limitations
 
-Developed as part of the **CodeAlpha Artificial Intelligence Internship**.
+- Detection performance depends on lighting, camera quality, and object visibility.
+- The default pretrained model recognizes only the object classes it was trained to detect.
+- Objects outside the model's supported classes may not be recognized.
+- Processing speed depends on the hardware and model configuration.
+- This project is intended for educational and demonstration purposes.
+
+## 🔮 Future Enhancements
+
+- Image and video file upload support
+- Detection history and report generation
+- Object tracking analytics
+- Improved performance through GPU acceleration
+- Custom-trained object detection models
+- Exportable detection statistics
 
 ## 👨‍💻 Author
 
@@ -120,6 +152,11 @@ Developed as part of the **CodeAlpha Artificial Intelligence Internship**.
 GitHub: [@sureshchavn](https://github.com/sureshchavn)
 
 LinkedIn: [Connect on LinkedIn](https://www.linkedin.com/in/suresh-chavan/)
----
 
-*This project is intended for educational and demonstration purposes.*
+## 🏢 Internship
+
+Developed as part of the **CodeAlpha Artificial Intelligence Internship**.
+
+## 📄 License
+
+This project is intended for educational and learning purposes. Review the applicable licenses of the model weights and third-party dependencies before redistributing them.
