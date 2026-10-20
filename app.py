@@ -3,9 +3,9 @@ import threading
 import time
 from datetime import datetime
 
-import cv2
-from flask import Flask, Response, jsonify, render_template
-from ultralytics import YOLO
+import cv2 # type: ignore
+from flask import Flask, Response, jsonify, render_template # type: ignore
+from ultralytics import YOLO # type: ignore
 
 app = Flask(__name__)
 
